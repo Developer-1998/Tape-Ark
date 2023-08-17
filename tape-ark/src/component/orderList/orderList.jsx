@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { styled } from "@mui/material/styles";
 import { Button, Grid, Paper, Typography, Card } from '@mui/material';
-//import ToggleButton from '@mui/material/ToggleButton';
+import { Outlet, Link } from "react-router-dom";
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import MuiToggleButton from "@mui/material/ToggleButton";
 export const OrderList = () => {
@@ -72,7 +72,9 @@ const orders= [1,2,3,4]
                                             </Card>
                                         </Grid>
                                         <Grid item>
+                                        <Link to="/orderTracking">
                                             <Button size="large" fullWidth={true} variant="contained" style={{width:'280px', backgroundColor: "#AD304C",borderRadius:'30px',height:'60px'}}>View</Button>
+                                            </Link>
                                         </Grid>
                                     </Grid>
                                 </Grid>
