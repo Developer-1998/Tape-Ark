@@ -41,7 +41,7 @@ return (
                     <img width={'36px'}
                         height={'36px'}
                         alt="tapeark"
-                        src={process.env.PUBLIC_URL + '/assets/tapeark_logo.png'} />
+                        src={process.env.PUBLIC_URL + '/assets/img/tapeark_logo.png'} />
                 </div>
                 <div className='col-md-10'>
                     {/* Seach bar */}
