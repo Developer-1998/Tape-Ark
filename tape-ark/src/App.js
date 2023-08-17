@@ -28,10 +28,10 @@ function App() {
     <div className="App">
       <Header />
       <div className="container-fluid">
-        
-        
-        <Navbar onViewClicked={(viewSelected) => navigate(viewSelected)}/>
-          <Outlet />
+
+
+        <Navbar onViewClicked={(viewSelected) => navigate(viewSelected)} />
+        <div className="outLet">
           <Routes>
             <Route path="/order" element={<OrderList />} />
             <Route path="/orderTracking" element={<OrderTracking />} />
@@ -39,6 +39,7 @@ function App() {
               <Route index element={<OrderList />} />
             </Route>
           </Routes>
+        </div>
       </div>
       <Footer />
     </div>
