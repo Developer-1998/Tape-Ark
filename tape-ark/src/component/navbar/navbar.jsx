@@ -96,7 +96,7 @@ export const Navbar = (props) => {
             { label: 'Restores', iconUrl: '/assets/img/restore.png', viewUrl: '/restores' }].map((navItem, index) => (
 
               <ListItem key={navItem.label} disablePadding sx={{
-                height: (open) ? '80px' : '80px',
+                height: (open) ? '85px' : '85px',
                 display: 'block',
                 borderRadius: '4px',
                 mx: 0.5,
