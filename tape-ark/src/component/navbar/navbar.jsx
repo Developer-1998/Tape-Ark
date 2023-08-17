@@ -64,15 +64,16 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   );
 
-export const Navbar = () => {
+export const Navbar = (props) => {
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
     const [selectedMenuItem, setSelectedMenuItem] = React.useState(null);
   
 
-    const openView = (index) => {
+    const openView = (index, viewUrl) => {
       setSelectedMenuItem(index);
       // Open Route here...
+      props.onViewClicked(viewUrl);
     }
 
     const handleDrawerOpen = () => {
@@ -88,11 +89,11 @@ export const Navbar = () => {
         <Drawer variant="permanent" open={open}>
           <Toolbar />
           <List>
-            {[{ label: 'Home', iconUrl: '/assets/img/home.png' },
-            { label: 'Order', iconUrl: '/assets/img/order.png' },
-            { label: 'Team', iconUrl: '/assets/img/account.png' },
-            { label: 'Settings', iconUrl: '/assets/img/settings.png' },
-            { label: 'Restores', iconUrl: '/assets/img/restore.png' }].map((navItem, index) => (
+            {[{ label: 'Home', iconUrl: '/assets/img/home.png', viewUrl: '/home' },
+            { label: 'Order', iconUrl: '/assets/img/order.png', viewUrl: '/order' },
+            { label: 'Team', iconUrl: '/assets/img/account.png', viewUrl: '/team' },
+            { label: 'Settings', iconUrl: '/assets/img/settings.png', viewUrl: '/settings' },
+            { label: 'Restores', iconUrl: '/assets/img/restore.png', viewUrl: '/restores' }].map((navItem, index) => (
 
               <ListItem key={navItem.label} disablePadding sx={{
                 height: (open) ? '80px' : '80px',
@@ -104,7 +105,7 @@ export const Navbar = () => {
                 }),
               }}>
                 <ListItemButton
-                  onClick={() => openView(index)}
+                  onClick={() => openView(index, navItem.viewUrl)}
                   sx={{
                     justifyContent: open ? 'initial' : 'center',
                     px: 2.5,

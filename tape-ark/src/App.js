@@ -5,6 +5,7 @@ import {
   Routes,
   Switch,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import { Outlet, Link } from "react-router-dom";
 import { Header } from "./component/header/header";
@@ -21,20 +22,23 @@ function App() {
   // const showHeader = location.pathname !== "/login"; // Hide header on the login page
   // console.log(showHeader)
 
+  const navigate = useNavigate();
+
   return (
     <div className="App">
       <Header />
       <div className="container-fluid">
-        <Navbar />
-        <Outlet />
-        <Router>
+        
+        
+        <Navbar onViewClicked={(viewSelected) => navigate(viewSelected)}/>
+          <Outlet />
           <Routes>
+            <Route path="/order" element={<OrderList />} />
             <Route path="/orderTracking" element={<OrderTracking />} />
             <Route path="/" element={<OrderList />}>
               <Route index element={<OrderList />} />
             </Route>
           </Routes>
-        </Router>
       </div>
       <Footer />
     </div>
