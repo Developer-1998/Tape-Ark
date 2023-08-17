@@ -55,7 +55,7 @@ export const OrderList = () => {
                                                             <Box p={1}>
                                                                 <Typography>OrderId</Typography>
                                                                 <Typography style={{ color: '#AD304C' }}>
-                                                                    798798789
+                                                                <b>TAINJ0001</b>
                                                                 </Typography>
                                                             </Box>
                                                         </Card>
