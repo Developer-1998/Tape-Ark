@@ -18,6 +18,8 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import StepContent from '@mui/material/StepContent';
 import Typography from '@mui/material/Typography';
+import CheckIcon from '@mui/icons-material/Check';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 
 export const OrderTracking = () => {
   const [value, setValue] = React.useState("1");
@@ -156,7 +158,7 @@ export const OrderTracking = () => {
                 </Stepper>
               </Stack>
             </div>
-            <VerticalLinearStepper/>
+            <VerticalLinearStepper />
           </TabPanel>
           <TabPanel value="2">Details</TabPanel>
           <TabPanel value="3">Request</TabPanel>
@@ -177,28 +179,33 @@ const steps = [
   {
     label: 'Request Recieved',
     description: ``,
-    date:`26 Jul, 2023`
+    date: `26 Jul, 2023`,
+    status: 'completed'
   },
   {
     label: 'Shipment Started',
-    description:
-      '',
+    description: '',
+    status: 'inprogress'
   },
   {
     label: 'Shipment Reached',
     description: ``,
+    status: 'disabled'
   },
   {
     label: 'Boxes Delivered',
     description: ``,
+    status: 'disabled'
   },
   {
     label: 'Tapes Picked Up',
     description: ``,
+    status: 'disabled'
   },
   {
     label: 'Tapes Delivered',
     description: ``,
+    status: 'disabled'
   },
 ];
 
@@ -222,8 +229,12 @@ export default function VerticalLinearStepper() {
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.label}>
-            <StepLabel>
-              {step.label}
+            <StepLabel StepIconComponent={step.status == 'disabled' ? DisabledStepIcon : (step.status == 'completed' ? CompletedStepIcon : InprogressStepIcon)}>
+              <span className="verticalStepLabel">
+                {step.label}
+              </span>
+              <br></br>
+              <small>{step.date}</small>
             </StepLabel>
             <StepContent>
               <Typography>{step.description}</Typography>
@@ -258,5 +269,60 @@ export default function VerticalLinearStepper() {
         </Paper>
       )} */}
     </Box>
+  );
+}
+
+function CompletedStepIcon(props) {
+  const { active, completed, className } = props;
+
+  return (
+    <>
+      <div className="verticalStepperIcon_Completed">
+        <CheckIcon></CheckIcon>
+      </div>
+    </>
+    // <QontoStepIconRoot ownerState={{ active }} className={className}>
+    //   {completed ? (
+    //     <Check className="QontoStepIcon-completedIcon" />
+    //   ) : (
+    //     <div className="QontoStepIcon-circle" />
+    //   )}
+    // </QontoStepIconRoot>
+  );
+}
+function InprogressStepIcon(props) {
+  const { active, completed, className } = props;
+
+  return (
+    <>
+      <div className="verticalStepperIcon_Inprogress">
+        <AccessTimeFilledIcon></AccessTimeFilledIcon>
+      </div>
+    </>
+    // <QontoStepIconRoot ownerState={{ active }} className={className}>
+    //   {completed ? (
+    //     <Check className="QontoStepIcon-completedIcon" />
+    //   ) : (
+    //     <div className="QontoStepIcon-circle" />
+    //   )}
+    // </QontoStepIconRoot>
+  );
+}
+function DisabledStepIcon(props) {
+  const { active, completed, className } = props;
+
+  return (
+    <>
+      <div className="verticalStepperIcon_Disabled">
+
+      </div>
+    </>
+    // <QontoStepIconRoot ownerState={{ active }} className={className}>
+    //   {completed ? (
+    //     <Check className="QontoStepIcon-completedIcon" />
+    //   ) : (
+    //     <div className="QontoStepIcon-circle" />
+    //   )}
+    // </QontoStepIconRoot>
   );
 }
