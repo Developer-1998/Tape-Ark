@@ -76,7 +76,7 @@ return (
                     </IconButton>
                     {/* Avatar */}
                     <Button>
-                        <Avatar alt="User Avatar" src={'/assets/dummyprofile.png'} sx={{ width: 32, height: 32 }}></Avatar>
+                        <Avatar alt="User Avatar" src={'/assets/img/dummyprofile.png'} sx={{ width: 32, height: 32 }}></Avatar>
                     </Button>
                 </div>
             </Toolbar>
