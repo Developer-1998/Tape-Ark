@@ -88,11 +88,11 @@ export const Navbar = () => {
         <Drawer variant="permanent" open={open}>
           <Toolbar />
           <List>
-            {[{ label: 'Home', iconUrl: '/assets/home.png' },
-            { label: 'Order', iconUrl: '/assets/order.png' },
-            { label: 'Team', iconUrl: '/assets/account.png' },
-            { label: 'Settings', iconUrl: '/assets/settings.png' },
-            { label: 'Restores', iconUrl: '/assets/restore.png' }].map((navItem, index) => (
+            {[{ label: 'Home', iconUrl: '/assets/img/home.png' },
+            { label: 'Order', iconUrl: '/assets/img/order.png' },
+            { label: 'Team', iconUrl: '/assets/img/account.png' },
+            { label: 'Settings', iconUrl: '/assets/img/settings.png' },
+            { label: 'Restores', iconUrl: '/assets/img/restore.png' }].map((navItem, index) => (
 
               <ListItem key={navItem.label} disablePadding sx={{
                 height: (open) ? '80px' : '80px',
