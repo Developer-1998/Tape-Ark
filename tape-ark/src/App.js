@@ -3,44 +3,38 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
+  Switch,
   useLocation,
 } from "react-router-dom";
 import { Header } from "./component/header/header";
 import { Navbar } from "./component/navbar/navbar";
 import { Footer } from "./component/footer/footer";
 import { Login } from "./views/Login/login";
-import { OverView } from "./views/OverView/overview";
+// import { OverView } from "./views/OverView/overview";
+import { OrderTracking } from "./views/OrderTracking/orderTracking";
+import "./App.css";
+
 function App() {
   // const location = useLocation();
   // const showHeader = location.pathname !== "/login"; // Hide header on the login page
   // console.log(showHeader)
 
   return (
-    <Router>
-      <div className="App">
-        {/* Conditionally render the Header */}
-
-        {/* {showHeader && <Header />} */}
-        <Header />
-
-        <div className="container">
-          <Navbar />
-
-          {/* Use Switch to render only one route at a time */}
-
+    <div className="App">
+      <Header />
+      <div className="container-fluid">
+        <Navbar />
+        <Router>
           <Routes>
-
-            <Route path="/overview" component={OverView} />
-
-            {/* Login route */}
-
-            <Route path="/login" component={Login} />
+            <Route path="/" element={<OrderTracking />}>
+              <Route index element={<OrderTracking />} />
+              <Route path="/orderTracking" component={OrderTracking} />
+            </Route>
           </Routes>
-        </div>
-
-        <Footer />
+        </Router>
       </div>
-    </Router>
+      <Footer />
+    </div>
   );
 }
 
