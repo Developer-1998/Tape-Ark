@@ -26,12 +26,12 @@ function App() {
       <Header />
       <div className="container-fluid">
         <Navbar />
-        <Outlet/>
+        <Outlet />
         <Router>
           <Routes>
+            <Route path="/orderTracking" element={<OrderTracking />} />
             <Route path="/" element={<OrderList />}>
               <Route index element={<OrderList />} />
-              <Route path="/orderTracking" element={<OrderTracking/>} />
             </Route>
           </Routes>
         </Router>
