@@ -73,7 +73,7 @@ export const OrderList = () => {
                                                         </Card>
                                                     </Grid>
                                                     <Grid item>
-                                                        <Button size="large" fullWidth={true} variant="contained" style={{ width: '280px', backgroundColor: "#AD304C", borderRadius: '30px', height: '60px' }} onClick={() => navigate("/orderTracking")}>View</Button>
+                                                        <Button size="large" fullWidth={true} variant="contained" style={{ width: '280px', backgroundColor: "#AD304C", borderRadius: '30px', height: '60px', textTransform: "none" }} onClick={() => navigate("/orderTracking")}>View</Button>
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
