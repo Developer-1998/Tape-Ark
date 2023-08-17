@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
 .App {
   text-align: center;
 }
@@ -97,4 +101,9 @@ hr {
   left:calc(-50% + 42px) !important;
 }
 
+.outLet {
+  margin-left: 65px;
+  margin-top: 65px;
+  padding: 20px;
+}
 /*tab section end*/
