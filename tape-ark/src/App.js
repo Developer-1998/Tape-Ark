@@ -10,37 +10,28 @@ import { Navbar } from "./component/navbar/navbar";
 import { Footer } from "./component/footer/footer";
 import { Login } from "./views/Login/login";
 import { OverView } from "./views/OverView/overview";
+import { OrderList } from "./component/orderList/orderList";
 function App() {
   // const location = useLocation();
   // const showHeader = location.pathname !== "/login"; // Hide header on the login page
   // console.log(showHeader)
 
   return (
-    <Router>
-      <div className="App">
-        {/* Conditionally render the Header */}
-
-        {/* {showHeader && <Header />} */}
-        <Header />
-
-        <div className="container">
-          <Navbar />
-
-          {/* Use Switch to render only one route at a time */}
-
-          <Routes>
-
-            <Route path="/overview" component={OverView} />
-
-            {/* Login route */}
-
-            <Route path="/login" component={Login} />
-          </Routes>
-        </div>
-
-        <Footer />
-      </div>
-    </Router>
+    // <Router>
+    //   <div className="App">
+    //     <Header />
+    //     <div className="container">
+    //       <Routes>
+    //         <Route path="/overview" component={OverView} />
+    //         <Route path="/login" component={Login} />
+    //       </Routes>
+    //     </div>=
+    //     <Footer />
+    //   </div>
+    // </Router>
+    <>
+    <OrderList/>
+    </>
   );
 }
 
