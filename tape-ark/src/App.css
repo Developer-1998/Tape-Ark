@@ -36,3 +36,65 @@
     transform: rotate(360deg);
   }
 }
+
+/* variables */
+
+:root {
+  --main-color: linear-gradient(180deg, #ad304c 0%, #8c1d36 100%);
+  --white-color: #fff;
+  --grey-color: #b2b8be;
+  --heading-color: #617388;
+  --border-color: #c8c9ca;
+}
+
+/* variable end*/
+
+/*breadcrumb*/
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.grey-color {
+  color: var(--grey-color);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.heading {
+  font-weight: 700;
+  line-height: 34px;
+  text-align: start;
+  color: var(--heading-color);
+}
+hr {
+  border: 1px solid var(--border-color);
+}
+/*breadcrumb end*/
+
+/* tab section*/
+
+.tab-section {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.css-jpln7h-MuiTabs-scroller {
+  background: var(--main-color);
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: var(--white-color) !important;
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  color: var(--white-color) !important;
+  font-family: Poppins !important;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: capitalize !important;
+}
+.css-263sm6-MuiStepConnector-root{
+  left:calc(-50% + 42px) !important;
+}
+
+/*tab section end*/
