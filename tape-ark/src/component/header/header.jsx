@@ -47,7 +47,7 @@ return (
                     {/* Seach bar */}
                     <InputBase
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Search"
                         startAdornment={
                             <InputAdornment position="start" sx={{ color: '#A6AEC1' }} >
                                 <SearchIcon sx={{ marginRight: '4px' }} />

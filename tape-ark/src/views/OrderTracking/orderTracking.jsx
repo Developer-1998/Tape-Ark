@@ -1,3 +1,4 @@
+import * as React from "react";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
@@ -12,14 +13,13 @@ import Stepper from "@mui/material/Stepper";
 import Tab from "@mui/material/Tab";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
-import * as React from "react";
-
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import StepContent from '@mui/material/StepContent';
 import Typography from '@mui/material/Typography';
 import CheckIcon from '@mui/icons-material/Check';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import { Requests } from "../../component/request/request";
 
 export const OrderTracking = () => {
   const [value, setValue] = React.useState("1");
@@ -161,7 +161,9 @@ export const OrderTracking = () => {
             <VerticalLinearStepper />
           </TabPanel>
           <TabPanel value="2">Details</TabPanel>
-          <TabPanel value="3">Request</TabPanel>
+          <TabPanel value="3">
+            <Requests/>
+          </TabPanel>
           <TabPanel value="4">Messages</TabPanel>
           <TabPanel value="5">Help</TabPanel>
         </TabContext>

@@ -47,14 +47,14 @@ export const OrderList = () => {
                                             <Grid item>
                                                 <Grid container direction="row" justifyContent="space-between" spacing={2}>
                                                     <Grid item>
-                                                        <Typography><b>Amazon</b></Typography>
-                                                        <Typography>06 July 2023</Typography>
+                                                        <Typography align='left' style={{fontSize:'22px',fontWeight:700,color:'#686868'}}>Amazon</Typography>
+                                                        <Typography align='left' style={{fontWeight:400,fontSize:'16px',color:'#686868'}}>06 July 2023</Typography>
                                                     </Grid>
                                                     <Grid item>
-                                                        <Card style={{ border: "1px solid #A5A5A5" }}>
+                                                        <Card style={{ border: "1px solid #A5A5A5" , width:'116px'}}>
                                                             <Box p={1}>
-                                                                <Typography>OrderId</Typography>
-                                                                <Typography style={{ color: '#AD304C' }}>
+                                                                <Typography style={{fontSize:'18px',fontWeight:'400',color:'#686868'}}>OrderId</Typography>
+                                                                <Typography style={{fontSize:'18px',fontWeight:700, color: '#AD304C' }}>
                                                                 <b>TAINJ0001</b>
                                                                 </Typography>
                                                             </Box>
@@ -65,10 +65,10 @@ export const OrderList = () => {
                                             <Grid item>
                                                 <Grid container direction="row" justifyContent="space-between" spacing={2}>
                                                     <Grid item>
-                                                        <Card style={{ border: "1px solid #A5A5A5", backgroundColor: "grey", borderRadius: '20px' }}>
+                                                        <Card style={{ border: "1px solid #A5A5A5", backgroundColor: "grey", borderRadius: '20px',maxWidth:'431px' }}>
                                                             <Box p={1}>
-                                                                <Typography><b>Your order status</b></Typography>
-                                                                <Typography>Lorem ipsum dolor sit </Typography>
+                                                                <Typography align='left' style={{fontSize:'14px',color:'#333333',fontWeight:700}}>Your order status</Typography>
+                                                                <Typography align='left' style={{fontWeight:400,fontSize:'12px',color:'#333333'}}>Awaiting Shipping. ETA 7 Jul 2023, 8 am - 9 pm</Typography>
                                                             </Box>
                                                         </Card>
                                                     </Grid>
