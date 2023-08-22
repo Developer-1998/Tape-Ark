@@ -1,3 +1,4 @@
+import * as React from "react";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
@@ -12,14 +13,13 @@ import Stepper from "@mui/material/Stepper";
 import Tab from "@mui/material/Tab";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
-import * as React from "react";
-
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
-import StepContent from '@mui/material/StepContent';
-import Typography from '@mui/material/Typography';
-import CheckIcon from '@mui/icons-material/Check';
-import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
+import StepContent from "@mui/material/StepContent";
+import Typography from "@mui/material/Typography";
+import CheckIcon from "@mui/icons-material/Check";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import { Requests } from "../../component/request/request";
 
 export const OrderTracking = () => {
   const [value, setValue] = React.useState("1");
@@ -65,10 +65,10 @@ export const OrderTracking = () => {
     alignItems: "center",
     border: "3px solid #C7CCD0",
     ...(ownerState.active &&
-    {
-      // backgroundImage:
-      //   "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
-    }),
+      {
+        // backgroundImage:
+        //   "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
+      }),
     ...(ownerState.completed && {
       background: "rgba(140, 29, 54, 0.2)",
       color: "#8C1D36;",
@@ -161,7 +161,9 @@ export const OrderTracking = () => {
             <VerticalLinearStepper />
           </TabPanel>
           <TabPanel value="2">Details</TabPanel>
-          <TabPanel value="3">Request</TabPanel>
+          <TabPanel value="3">
+            <Requests />
+          </TabPanel>
           <TabPanel value="4">Messages</TabPanel>
           <TabPanel value="5">Help</TabPanel>
         </TabContext>
@@ -170,42 +172,37 @@ export const OrderTracking = () => {
   );
 };
 
-
-
-
-
-
 const steps = [
   {
-    label: 'Request Recieved',
+    label: "Request Recieved",
     description: ``,
     date: `26 Jul, 2023`,
-    status: 'completed'
+    status: "completed",
   },
   {
-    label: 'Shipment Started',
-    description: '',
-    status: 'inprogress'
+    label: "Shipment Started",
+    description: "",
+    status: "inprogress",
   },
   {
-    label: 'Shipment Reached',
+    label: "Shipment Reached",
     description: ``,
-    status: 'disabled'
+    status: "disabled",
   },
   {
-    label: 'Boxes Delivered',
+    label: "Boxes Delivered",
     description: ``,
-    status: 'disabled'
+    status: "disabled",
   },
   {
-    label: 'Tapes Picked Up',
+    label: "Tapes Picked Up",
     description: ``,
-    status: 'disabled'
+    status: "disabled",
   },
   {
-    label: 'Tapes Delivered',
+    label: "Tapes Delivered",
     description: ``,
-    status: 'disabled'
+    status: "disabled",
   },
 ];
 
@@ -229,10 +226,16 @@ export default function VerticalLinearStepper() {
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.label}>
-            <StepLabel StepIconComponent={step.status == 'disabled' ? DisabledStepIcon : (step.status == 'completed' ? CompletedStepIcon : InprogressStepIcon)}>
-              <span className="verticalStepLabel">
-                {step.label}
-              </span>
+            <StepLabel
+              StepIconComponent={
+                step.status == "disabled"
+                  ? DisabledStepIcon
+                  : step.status == "completed"
+                  ? CompletedStepIcon
+                  : InprogressStepIcon
+              }
+            >
+              <span className="verticalStepLabel">{step.label}</span>
               <br></br>
               <small>{step.date}</small>
             </StepLabel>
@@ -313,9 +316,7 @@ function DisabledStepIcon(props) {
 
   return (
     <>
-      <div className="verticalStepperIcon_Disabled">
-
-      </div>
+      <div className="verticalStepperIcon_Disabled"></div>
     </>
     // <QontoStepIconRoot ownerState={{ active }} className={className}>
     //   {completed ? (
