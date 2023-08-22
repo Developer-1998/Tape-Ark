@@ -5,6 +5,7 @@ import { Button, Grid, Paper, Typography, Card } from '@mui/material';
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import MuiToggleButton from "@mui/material/ToggleButton";
+import { ButtonColor } from '../theme/theme';
 export const OrderList = () => {
     const [alignment, setAlignment] = React.useState('web');
     const handleChange = (event, newAlignment) => {
@@ -22,7 +23,7 @@ export const OrderList = () => {
                                 <Typography style={{ color: '#617388', fontSize: '28px' }}><b>Your Orders</b></Typography>
                             </Grid>
                         </Box>
-                        <Grid item>
+                        <Grid item style={{height:'40px', border:`1px solid ${ButtonColor}`,padding:'2px',borderRadius:'8px'}}>
                             <ToggleButtonGroup
                                 color="primary"
                                 value={alignment}
@@ -54,7 +55,7 @@ export const OrderList = () => {
                                                         <Card style={{ border: "1px solid #A5A5A5" }}>
                                                             <Box p={1}>
                                                                 <Typography>OrderId</Typography>
-                                                                <Typography style={{ color: '#AD304C' }}>
+                                                                <Typography style={{ color: ButtonColor  }}>
                                                                 <b>TAINJ0001</b>
                                                                 </Typography>
                                                             </Box>
@@ -73,7 +74,7 @@ export const OrderList = () => {
                                                         </Card>
                                                     </Grid>
                                                     <Grid item>
-                                                        <Button size="large" fullWidth={true} variant="contained" style={{ width: '280px', backgroundColor: "#AD304C", borderRadius: '30px', height: '60px', textTransform: "none" }} onClick={() => navigate("/orderTracking")}>View</Button>
+                                                        <Button size="large" fullWidth={true} variant="contained" style={{ width: '280px', backgroundColor: ButtonColor, borderRadius: '30px', height: '60px', textTransform: "none" }} onClick={() => navigate("/orderTracking")}>View</Button>
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
@@ -91,11 +92,10 @@ export const OrderList = () => {
 
 const ToggleButton = styled(MuiToggleButton)({
     "&.MuiToggleButton-root.Mui-selected": {
-        //  color: "#8C1D36",
-        // border: "1px solid #8C1D36",
-        backgroundColor: "#FFFFFF",
+        backgroundColor: ButtonColor,
         borderRadius: "8px",
         fontSize: "14px",
+        border: `1px solid ${ButtonColor}`
     },
     "&.MuiToggleButton-root": {
         color: "#7B809A",
@@ -103,6 +103,5 @@ const ToggleButton = styled(MuiToggleButton)({
         textTransform: "none !important",
         height: "35px",
         fontSize: "14px",
-        backgroundColor: "#E1E8F0",
-    },
+       },
 });
