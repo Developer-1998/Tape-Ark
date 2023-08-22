@@ -9,6 +9,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import { InputBase } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
+import { ButtonColor, PrimaryColor } from '../theme/theme';
 
 const drawerWidth = 120;
 
@@ -35,7 +36,7 @@ export const Header = ()=> {
 
 return (
     <>
-        <AppBar position="fixed" sx={{ width: '100%', backgroundColor: '#FFFFFF' }}>
+        <AppBar position="fixed" sx={{ width: '100%', backgroundColor: PrimaryColor, border: 'none', boxShadow: 'none' }}>
             <Toolbar sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-between' }}>
                 <div className='col-md-2'>
                     <img width={'36px'}
@@ -71,8 +72,8 @@ return (
 
                     />
                     {/* Notification Icon */}
-                    <IconButton sx={{ paddingLeft: '12px' }} aria-label="notifications">
-                        <NotificationsOutlinedIcon />
+                    <IconButton sx={{ paddingLeft: '12px', }} aria-label="notifications">
+                        <NotificationsOutlinedIcon sx={{ color: ButtonColor }}/>
                     </IconButton>
                     {/* Avatar */}
                     <Button>

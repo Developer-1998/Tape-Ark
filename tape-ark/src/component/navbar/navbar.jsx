@@ -12,11 +12,13 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import { ButtonColorGradient, PrimaryColor } from '../theme/theme';
 
 
 const drawerWidth = 120;
 
 const openedMixin = (theme) => ({
+  backgroundColor: PrimaryColor,
   width: drawerWidth,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -26,6 +28,7 @@ const openedMixin = (theme) => ({
 });
 
 const closedMixin = (theme) => ({
+  backgroundColor: PrimaryColor,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -101,7 +104,7 @@ export const Navbar = (props) => {
                 borderRadius: '4px',
                 mx: 0.5,
                 ...(selectedMenuItem === index && {
-                  background: 'linear-gradient(180deg, #AD304C 0%, #8C1D36 100%)',
+                  background: ButtonColorGradient,
                 }),
               }}>
                 <ListItemButton
