@@ -28,8 +28,6 @@ function App() {
     <div className="App">
       <Header />
       <div className="container-fluid">
-
-
         <Navbar onViewClicked={(viewSelected) => navigate(viewSelected)} />
         <div className="outLet">
           <Routes>
