@@ -21,6 +21,7 @@ import Typography from '@mui/material/Typography';
 import CheckIcon from '@mui/icons-material/Check';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import { Requests } from "../../component/request/request";
+import { Messages } from "../../component/messages/messages";
 
 export const OrderTracking = () => {
   const [value, setValue] = React.useState("1");
@@ -165,7 +166,7 @@ export const OrderTracking = () => {
           <TabPanel value="3">
             <Requests/>
           </TabPanel>
-          <TabPanel value="4">Messages</TabPanel>
+          <TabPanel sx={{paddingTop: '0px', paddingBottom: '0px'}} value="4"><Messages/></TabPanel>
           <TabPanel value="5">Help</TabPanel>
         </TabContext>
       </div>
