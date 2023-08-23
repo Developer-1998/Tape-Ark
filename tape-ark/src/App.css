@@ -45,7 +45,7 @@
 /* variables */
 
 :root {
-  --main-color: linear-gradient(180deg, #ad304c 0%, #8c1d36 100%);
+  --main-color: linear-gradient(180deg, #EEAB10 0%, #FFC133 100%);
   --white-color: #fff;
   --grey-color: #b2b8be;
   --heading-color: #617388;
@@ -94,7 +94,7 @@ hr {
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-  color: var(--white-color) !important;
+  color: var(--charcoal, #3A3E3F) !important;
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
@@ -105,12 +105,12 @@ hr {
   text-transform: capitalize !important;
 }
 
-.css-263sm6-MuiStepConnector-root {
+.Mui-active {
   left: calc(-50% + 42px) !important;
 }
 
 .css-1aquho2-MuiTabs-indicator {
-  background-color: var(--white-color) !important;
+  background-color: var(--charcoal, #3A3E3F) !important;
   bottom: 10px !important;
 }
 
@@ -118,6 +118,7 @@ hr {
   margin-left: 65px;
   margin-top: 65px;
   padding: 20px;
+  background: var(--charcoal, #3A3E3F)
 }
 
 .css-heg063-MuiTabs-flexContainer {
@@ -126,7 +127,7 @@ hr {
 }
 
 .verticalStepLabel {
-  color: #4B4B4B;
+  color: var(--white-color) !important;;
   font-weight: 700;
 }
 
@@ -164,6 +165,14 @@ hr {
   border-radius: 50%;
   border: 1px solid #d6d8de;
   /* color: var(--white-color); */
+
+}
+.verticalStepLabelDisabled{
+  color: #afafaf;
+    font-weight: normal;
+}
+.dateLabel{
+  color: var(--white-color) !important;;
 
 }
 
