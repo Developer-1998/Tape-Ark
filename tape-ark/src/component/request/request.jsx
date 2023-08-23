@@ -1,7 +1,6 @@
 import { Grid, Paper, Box, Typography, Button, TextField } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { ButtonColor } from "../theme/theme";
-
+import { ButtonColor, ButtonColorGradient } from "../theme/theme";
 export const Requests = () => {
   const classes = useStyles();
   return (

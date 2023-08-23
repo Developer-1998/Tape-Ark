@@ -2,10 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { styled } from "@mui/material/styles";
 import { Button, Grid, Paper, Typography, Card } from '@mui/material';
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import MuiToggleButton from "@mui/material/ToggleButton";
-import { ButtonColor } from '../theme/theme';
+import { ButtonColor, ButtonColorGradient } from "../theme/theme";
 export const OrderList = () => {
     const [alignment, setAlignment] = React.useState('web');
     const handleChange = (event, newAlignment) => {
@@ -14,7 +14,7 @@ export const OrderList = () => {
     const orders = [1, 2, 3, 4]
     const navigate = useNavigate();
     return (
-        <Box p={4}>
+        <Box p={4} style={{backgroundColor:"transparent"}}>
             <Grid container direction="column" spacing={2}>
                 <Grid item>
                     <Grid container direction="row" justifyContent="space-between">
@@ -42,17 +42,17 @@ export const OrderList = () => {
                     return (
                         <Grid item>
                             <Box>
-                                <Paper elevation={2} style={{ borderRadius: '20px' }}>
+                                <Paper elevation={2} style={{ borderRadius: '20px',backgroundColor:"transparent",border:'1px solid white' }}>
                                     <Box p={4}>
                                         <Grid container direction="column" spacing={2}>
                                             <Grid item>
                                                 <Grid container direction="row" justifyContent="space-between" spacing={2}>
                                                     <Grid item>
-                                                        <Typography><b>Amazon</b></Typography>
-                                                        <Typography>06 July 2023</Typography>
+                                                        <Typography style={{color:'white'}} align='left'><b>Amazon</b></Typography>
+                                                        <Typography style={{color:'white'}} align='left'>06 July 2023</Typography>
                                                     </Grid>
                                                     <Grid item>
-                                                        <Card style={{ border: "1px solid #A5A5A5" }}>
+                                                        <Card style={{ backgroundColor:"transparent",border:'1px solid white' }}>
                                                             <Box p={1}>
                                                                 <Typography>OrderId</Typography>
                                                                 <Typography style={{ color: ButtonColor  }}>
@@ -68,8 +68,8 @@ export const OrderList = () => {
                                                     <Grid item>
                                                         <Card style={{ border: "1px solid #A5A5A5", backgroundColor: "grey", borderRadius: '20px' }}>
                                                             <Box p={1}>
-                                                                <Typography><b>Your order status</b></Typography>
-                                                                <Typography>Lorem ipsum dolor sit </Typography>
+                                                                <Typography  align='left'><b>Your order status</b></Typography>
+                                                                <Typography  align='left'>Lorem ipsum dolor sit </Typography>
                                                             </Box>
                                                         </Card>
                                                     </Grid>
@@ -98,7 +98,7 @@ const ToggleButton = styled(MuiToggleButton)({
         border: `1px solid ${ButtonColor}`
     },
     "&.MuiToggleButton-root": {
-        color: "#7B809A",
+        color: "white",
         borderRadius: "8px",
         textTransform: "none !important",
         height: "35px",
