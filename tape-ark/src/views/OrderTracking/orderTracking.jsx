@@ -13,6 +13,7 @@ import Tab from "@mui/material/Tab";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
+
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import StepContent from '@mui/material/StepContent';
@@ -34,7 +35,7 @@ export const OrderTracking = () => {
     [`&.${stepConnectorClasses.active}`]: {
       [`& .${stepConnectorClasses.line}`]: {
         backgroundImage:
-          "linear-gradient( 95deg,rgba(140, 29, 54, 1) 0%,rgba(140, 29, 54, 1) 50%,rgba(140, 29, 54, 1) 100%)",
+          "linear-gradient(180deg, #EEAB10 0%, #FFC133 100%)",
       },
     },
     [`&.${stepConnectorClasses.completed}`]: {
@@ -70,8 +71,8 @@ export const OrderTracking = () => {
       //   "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
     }),
     ...(ownerState.completed && {
-      background: "rgba(140, 29, 54, 0.2)",
-      color: "#8C1D36;",
+      background: "#ffc54021",
+      color: "#FFC540;",
     }),
   }));
 
@@ -232,11 +233,11 @@ export default function VerticalLinearStepper() {
         {steps.map((step, index) => (
           <Step key={step.label}>
             <StepLabel StepIconComponent={step.status == 'disabled' ? DisabledStepIcon : (step.status == 'completed' ? CompletedStepIcon : InprogressStepIcon)}>
-              <span className="verticalStepLabel">
+              <span className={step.status=='disabled'?'verticalStepLabelDisabled':"verticalStepLabel"}>
                 {step.label}
               </span>
               <br></br>
-              <small>{step.date}</small>
+              <small className="dateLabel">{step.date}</small>
             </StepLabel>
             <StepContent>
               <Typography>{step.description}</Typography>
