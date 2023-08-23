@@ -153,38 +153,49 @@ export const Messages = () => {
           <Stack direction="row" alignItems="flex-start" spacing={2} mb={2} mt={2}>
             <Avatar sx={{ height: '52px', width: '52px', marginRight: '10px' }} alt=' ' src="/path/to/avatar.png" />
             <Stack direction="column" alignItems="flex-start" spacing={0}>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography sx={{ fontFamily: 'Poppins', fontSize: '18px', color: '#FFFFFF', fontWeight: 500, lineHeight: '30px', marginRight: 24 }} variant="body1">{selectedPerson?.name}</Typography>
+              <Box 
+                sx={{
+                  maxWidth: '580px',
+                  minWidth: '480px',
+                }}
+              >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: "space-between"  }}>
+                <Typography sx={{ fontFamily: 'Poppins', fontSize: '18px', color: '#FFFFFF', fontWeight: 500, lineHeight: '30px'}} variant="body1">{selectedPerson?.name}</Typography>
                 <Typography sx={{ fontFamily: 'Poppins', fontSize: '14px', color: '#FFFFFF', opacity: 0.6 }}>{moment().format('dddd, h:mm a')}</Typography>
               </div>
-              <Box
-                sx={{
+                <Box sx={{
                   backgroundColor: '#E9ECF5',
                   padding: '10px',
                   paddingTop: '20px',
                   borderRadius: '8px',
                   marginBottom: '10px',
                   height: '40px',
+                  display: 'flex',
+                  alignItems: 'flex-start',
                   maxWidth: '580px',
                   minWidth: '480px',
                   width: 'fit-content',
-                  display: 'flex',
-                  alignItems: 'flex-start',
                   border: '1px'
-                }}
-              >I will need 3-4 working days to resolve this.
+                }}>I will need 3-4 working days to resolve this.
+                </Box>
               </Box>
             </Stack>
           </Stack>
 
           {/* Messages which appear on the right */}
           <Stack direction="column" alignItems="flex-end" spacing={0}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Typography sx={{ fontSize: '18px', mr: 55, color: '#FFFFFF'  }} variant="body1">You</Typography>
-              <Typography sx={{ fontFamily: 'Poppins', fontSize: '14px', color: '#FFFFFF', opacity: 0.6 }}>{'Now'}</Typography> {/* Display date and time here */}
-            </div>
+
             <Box
               sx={{
+                maxWidth: '580px',
+                minWidth: '480px',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center',justifyContent: "space-between"  }}>
+                <Typography sx={{ fontSize: '18px', color: '#FFFFFF' }} variant="body1">You</Typography>
+                <Typography sx={{ fontFamily: 'Poppins', fontSize: '14px', color: '#FFFFFF', opacity: 0.6 }}>{'Now'}</Typography> {/* Display date and time here */}
+              </div>
+              <Box sx={{
                 backgroundColor: ButtonColor,
                 padding: '10px',
                 paddingTop: '20px',
@@ -199,9 +210,8 @@ export const Messages = () => {
                 flexDirection: 'column',
                 alignItems: 'flex-start',
                 border: '1px'
-              }}
-            >
-              Sure, I will wait for a resolution.
+              }}>Sure, I will wait for a resolution.
+              </Box>
             </Box>
           </Stack>
 
@@ -213,7 +223,7 @@ export const Messages = () => {
           component="form"
           elevation={0}
           sx={{
-            width:'920px',
+            width:'100%',
             display: 'flex',
             flexDirection: 'column',
             padding: '5px 10px',
