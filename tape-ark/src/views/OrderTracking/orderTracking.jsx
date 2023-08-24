@@ -1,6 +1,8 @@
 import TabContext from "@mui/lab/TabContext";
+
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import Divider from '@mui/material/Divider';
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Step from "@mui/material/Step";
@@ -13,6 +15,7 @@ import Tab from "@mui/material/Tab";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
+import Grid from '@mui/material/Grid';
 
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -22,7 +25,6 @@ import CheckIcon from '@mui/icons-material/Check';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import { Requests } from "../../component/request/request";
 import { Messages } from "../../component/messages/messages";
-import { Audit } from "../../component/slider/slider";
 
 export const OrderTracking = () => {
   const [value, setValue] = React.useState("1");
@@ -189,8 +191,31 @@ const steps = [
   },
   {
     label: 'Shipment Started',
-    description: '',
-    status: 'inprogress'
+    description: `The courier partners are enroute and should reach your all your locations before
+    Tomorrow, 30 Jul, 2023`,
+    date: `30 Jul, 2023`,
+    status: 'inprogress',
+    deliveryLocations: [{
+      name: 'Stephen Amell',
+      location: '80 South Street',
+      city: 'London',
+      pinCode: 'N761SU',
+      status: '30'
+    },
+    {
+      name: 'Jeremy Irons',
+      location: '64 Seasame Street',
+      city: 'Bihar',
+      pinCode: '300024',
+      status: '50'
+    },
+    {
+      name: 'Silver Stone',
+      location: '80 South Street',
+      city: 'Montreal',
+      pinCode: 'N761SU',
+      status: '70'
+    }]
   },
   {
     label: 'Shipment Reached',
@@ -215,7 +240,7 @@ const steps = [
 ];
 
 export default function VerticalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(1);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -228,22 +253,59 @@ export default function VerticalLinearStepper() {
   const handleReset = () => {
     setActiveStep(0);
   };
+  const goToStep = index => {
+    setActiveStep(index)
+  }
 
   return (
     <Box sx={{ maxWidth: 400 }}>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.label}>
-            <StepLabel StepIconComponent={step.status == 'disabled' ? DisabledStepIcon : (step.status == 'completed' ? CompletedStepIcon : InprogressStepIcon)}>
-              <span className={step.status=='disabled'?'verticalStepLabelDisabled':"verticalStepLabel"}>
+            <StepLabel onClick={() => goToStep(index)} StepIconComponent={step.status == 'disabled' ? DisabledStepIcon : (step.status == 'completed' ? CompletedStepIcon : InprogressStepIcon)}>
+              <span className={step.status == 'disabled' ? 'verticalStepLabelDisabled' : "verticalStepLabel"}>
                 {step.label}
               </span>
               <br></br>
               <small className="dateLabel">{step.date}</small>
             </StepLabel>
             <StepContent>
-              <Typography>{step.description}</Typography>
-              <Box sx={{ mb: 2 }}>
+              <span className="stepDescription">{step.description}</span>
+              {step && step.deliveryLocations && <Box sx={{ mb: 2 }}>
+                <div className="deliveryLocationsContainer">
+                  <h4 className="deliveryLocationsHeadingText">Delivery Locations</h4>
+                  <Stack spacing={2}  divider={<Divider flexItem />}>
+                    {step.deliveryLocations.map((location, indexOfLocation) => (
+                      <div key={location.name}>
+                        <Grid container spacing={2}>
+                          <Grid item xs={2}>
+                            <div className="locationIndex">
+                              <div className="locationIndexText">{indexOfLocation + 1}</div>
+                            </div>
+                          </Grid>
+                          <Grid item xs={7}>
+                            <div>
+                              <span className="deliveryLocationName">{location.name}</span><br />
+                              <small className="deliveryLocationArea">{location.location}</small><br />
+                              <small className="deliveryLocationCity">{location.city}</small>&nbsp;<small className="deliveryLocationPin">{location.pinCode}</small>
+                            </div>
+                          </Grid>
+                          <Grid item xs={3}>
+                            <div>
+                              <Button variant="outlined" className="deliveryLocationButton">Outlined</Button>
+                            </div>
+                          </Grid>
+                          <Grid item xs={12}>
+                            <div className="deliveryLocationStatus"></div>
+                          </Grid>
+                        </Grid>
+
+
+
+                      </div>
+                    ))}
+                  </Stack>
+                </div>
                 {/* <div>
                   <Button
                     variant="contained"
@@ -260,7 +322,7 @@ export default function VerticalLinearStepper() {
                     Back
                   </Button>
                 </div> */}
-              </Box>
+              </Box>}
             </StepContent>
           </Step>
         ))}
