@@ -36,7 +36,7 @@ export const Header = ()=> {
 
 return (
     <>
-        <AppBar position="fixed" sx={{ width: '100%', backgroundColor: PrimaryColor, border: 'none', boxShadow: 'none' }}>
+        <AppBar position="fixed" sx={{ width: '100%', backgroundColor: PrimaryColor, borderBottom: '1px solid #EAEAEA', boxShadow: 'none' }}>
             <Toolbar sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-between' }}>
                 <div className='col-md-2'>
                     <img width={'36px'}
