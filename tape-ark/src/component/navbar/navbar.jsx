@@ -13,7 +13,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { ButtonColorGradient, PrimaryColor } from '../theme/theme';
-
+import Box from '@mui/material/Box';
 
 const drawerWidth = 120;
 
@@ -25,6 +25,7 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
+  paddingRight: 8
 });
 
 const closedMixin = (theme) => ({
@@ -38,6 +39,8 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
+  paddingRight: 8,
+  borderRight: '1px solid #EAEAEA'
 });
 
 const DrawerCollapse = styled('div')(({ theme }) => ({
@@ -92,11 +95,11 @@ export const Navbar = (props) => {
         <Drawer variant="permanent" open={open}>
           <Toolbar />
           <List>
-            {[{ label: 'Home', iconUrl: '/assets/img/home.png', viewUrl: '/home' },
-            { label: 'Order', iconUrl: '/assets/img/order.png', viewUrl: '/order' },
-            { label: 'Team', iconUrl: '/assets/img/account.png', viewUrl: '/team' },
-            { label: 'Settings', iconUrl: '/assets/img/settings.png', viewUrl: '/settings' },
-            { label: 'Restores', iconUrl: '/assets/img/restore.png', viewUrl: '/restores' }].map((navItem, index) => (
+            {[{ label: 'Home', iconUrl: '/assets/img/home.png', highlightIconUrl: '/assets/img/homeHighlight.png', viewUrl: '/home' },
+            { label: 'Order', iconUrl: '/assets/img/order.png', highlightIconUrl: '/assets/img/orderHighlight.png', viewUrl: '/order' },
+            { label: 'Team', iconUrl: '/assets/img/account.png', highlightIconUrl: '/assets/img/accountHighlight.png', viewUrl: '/team' },
+            { label: 'Settings', iconUrl: '/assets/img/settings.png', highlightIconUrl: '/assets/img/settingsHighlight.png', viewUrl: '/settings' },
+            { label: 'Restores', iconUrl: '/assets/img/restore.png', highlightIconUrl: '/assets/img/restore.png', viewUrl: '/restores' }].map((navItem, index) => (
 
               <ListItem key={navItem.label} disablePadding sx={{
                 height: (open) ? '85px' : '85px',
@@ -126,7 +129,7 @@ export const Navbar = (props) => {
                     <img width={'36px'}
                       height={'36px'}
                       alt={navItem.label}
-                      src={process.env.PUBLIC_URL + navItem.iconUrl} />
+                      src={process.env.PUBLIC_URL + ((selectedMenuItem === index)?navItem.highlightIconUrl:navItem.iconUrl)} />
                   </ListItemIcon>
                   <ListItemText primary={navItem.label}
                     primaryTypographyProps={{
@@ -146,11 +149,10 @@ export const Navbar = (props) => {
           <DrawerCollapse>
             {/* Toggle Drawer Button */}
             <IconButton
-              color="inherit"
               aria-label="toggle drawer"
               onClick={open ? handleDrawerClose : handleDrawerOpen}
               edge="start"
-              sx={{ marginRight: open ? 5 : 0 }}
+              sx={{ marginRight: open ? 5 : 0, color: '#EAEAEA' }}
             >
               {open ? (
                 theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />
