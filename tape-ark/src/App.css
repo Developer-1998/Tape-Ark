@@ -95,10 +95,13 @@ hr {
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
   color: var(--charcoal, #3A3E3F) !important;
+  font-weight: 700 !important;
+
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
-  color: var(--white-color) !important;
+  /* color: var(--white-color) !important; */
+  color: var(--gray-2, #5F5F5F) !important;
   font-family: "Poppins", sans-serif !important;
   font-size: 22px;
   font-weight: 700;
