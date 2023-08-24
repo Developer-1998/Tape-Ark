@@ -12,7 +12,7 @@ export const Requests = () => {
         justifyContent="flex-start"
       >
         <Grid item>
-          <Paper elevation={2}>
+          <div style={{border:'1px solid #C7CCD0'}}>
             <Box p={2}>
               <Grid container direction="column">
                 <Grid item>
@@ -21,7 +21,7 @@ export const Requests = () => {
                     style={{
                       fontSize: "28px",
                       fontWeight: 700,
-                      color: "#617388",
+                      color: "#FFFFFF",
                     }}
                   >
                     Tape List
@@ -37,7 +37,7 @@ export const Requests = () => {
                       <Grid
                         container
                         direction="column"
-                        style={{ fontSize: "18px", color: "#617388" }}
+                        style={{ fontSize: "18px", color: "#FFFFFF" }}
                       >
                         <Grid item>
                           <Typography align="left">
@@ -61,7 +61,7 @@ export const Requests = () => {
                             </li>
                             <li>
                               <Typography align="left">
-                                <a href="#" style={{ color: "#617388" }}>
+                                <a href="#" style={{ color: "#FFFFFF" }}>
                                   {" "}
                                   Click Here
                                 </a>{" "}
@@ -92,10 +92,10 @@ export const Requests = () => {
                 </Grid>
               </Grid>
             </Box>
-          </Paper>
+          </div>
         </Grid>
         <Grid item>
-          <Paper elevation={2}>
+          <div style={{border:'1px solid #C7CCD0'}}>
             <Box p={2}>
               <Grid container direction="column" spacing={2} xs={12}>
                 <Grid item>
@@ -104,7 +104,7 @@ export const Requests = () => {
                     style={{
                       fontSize: "28px",
                       fontWeight: 700,
-                      color: "#617388",
+                      color: "#FFFFFF",
                     }}
                   >
                     Virtual Machine
@@ -121,7 +121,7 @@ export const Requests = () => {
                         align="left"
                         style={{
                           fontSize: "18px",
-                          color: "#617388",
+                          color: "#FFFFFF",
                           fontWeight: 400,
                         }}
                       >
@@ -154,10 +154,11 @@ export const Requests = () => {
                     <Grid item>
                       <TextField
                         className={classes.input}
-                        id="outlined-basic"
-                        label="Insert Link"
+                        //id="outlined-basic"
+                        //label="Insert Link"
+                        placeholder="Insert Link"
                         variant="outlined"
-                        fullWidth={true}
+                       // fullWidth={true}
                         InputProps={{
                           endAdornment: (
                             <Button
@@ -167,8 +168,10 @@ export const Requests = () => {
                                 color: ButtonColor,
                                 textTransform: "none",
                                 width: "81px",
+                                height:'40px'
                               }}
                               variant="outlined"
+                              size='large'
                             >
                               Verify
                             </Button>
@@ -180,7 +183,7 @@ export const Requests = () => {
                 </Grid>
               </Grid>
             </Box>
-          </Paper>
+          </div>
         </Grid>
       </Grid>
     </Box>
@@ -192,9 +195,15 @@ const useStyles = makeStyles({
   input: {
     width: "859px",
     borderRadius: "8px",
-    border: "1px solid #C7CCD0",
-    "&:focus": {
-      border: `1px solid #C7CCD0`,
+border: "1px solid #C7CCD0",
+    "& .MuiOutlinedInput-root": {
+      "&.Mui-focused fieldset": {
+        borderColor: '#C7CCD0'
+      }
+    },
+    "& label.Mui-focused": {
+      color: "#C7CCD0",
+      height:'50px',
     },
   },
 });
