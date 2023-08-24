@@ -133,6 +133,8 @@ const ToggleButton = styled(MuiToggleButton)({
   "&.MuiToggleButton-root.Mui-selected": {
     backgroundColor: ButtonColor,
     borderRadius: "8px",
+    color:'#404558',
+    fontWeight:600,
     fontSize: "14px",
     border: `1px solid ${ButtonColor}`,
   },
